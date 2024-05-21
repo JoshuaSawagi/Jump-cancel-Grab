@@ -1,0 +1,41 @@
+[package]
+name = "uxm_dev"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.skyline]
+titleid = "01006A800016E000"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+skyline = { git = "https://github.com/ultimate-research/skyline-rs.git" }
+skyline_smash = { git = "https://github.com/blu-dev/skyline-smash.git", features = ["weak_l2cvalue"] }
+smash_script = { git = "https://github.com/blu-dev/smash-script.git", branch = "development" }
+smashline = { git = "https://github.com/HDR-Development/smashline" }
+smash2 = { package = "smash", git = "https://github.com/blu-dev/smash-rs" }
+smash_singletons = { git = "https://github.com/WuBoytH/smash_singletons.git" }
+skyline-web = { git = "https://github.com/skyline-rs/skyline-web" }
+ninput = { git = "https://github.com/blu-dev/ninput", version = "0.1.0" }
+param_config = { git = "https://github.com/csharpm7/lib_paramconfig.git"}
+libc-nnsdk = "0.2.0"
+crc32fast = "1.3.2"
+once_cell = "1.12.0"
+walkdir = "2.3.2"
+bitflags = "1.3.2"
+lazy_static = "1.4.0"
+modular-bitfield = "0.11.2"
+interpolation = "0.3.0"
+
+[patch.crates-io]
+skyline = { git = "https://github.com/ultimate-research/skyline-rs.git" }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+opt-level = 'z'
+panic = "abort"
+lto = true
+codegen-units = 1
